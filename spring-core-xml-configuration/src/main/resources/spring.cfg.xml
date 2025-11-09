@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="com.itShaala.model.Employee" name="employee" scope="singleton">
+        <!--Setter based dependency injection-->
+        <property name="id" value="88"/>
+        <property name="name" value="Ravan"/>
+        <property name="salary" value="81000"/>
+    </bean>
+
+</beans>
