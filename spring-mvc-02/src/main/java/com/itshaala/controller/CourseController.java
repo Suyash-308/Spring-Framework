@@ -35,7 +35,6 @@ public class CourseController {
 //        return modelAndView;
 //    }
 
-
     @PostMapping("/courses")
     public ModelAndView createCourse(@ModelAttribute Course course) {
         courseService.createCourse(course);
@@ -44,14 +43,6 @@ public class CourseController {
         return modelAndView;
     }
 
-
-
-
-
-
-
-
-
     @GetMapping("/courses/create-course-form")
     public ModelAndView createCourseForm() {
         ModelAndView modelAndView = new ModelAndView();
@@ -59,4 +50,38 @@ public class CourseController {
         return modelAndView;
     }
 
+
+
+    @PostMapping("/courses/update")
+    public ModelAndView updateCourse(@ModelAttribute Course course) {
+        courseService.updateCourse(course);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("course-update-success");
+        return modelAndView;
+    }
+
+    @GetMapping("/courses/update-form")
+    public ModelAndView updateCourseForm(@ModelAttribute Course course) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("course-update-form");
+        modelAndView.addObject("course",course);
+        return modelAndView;
+    }
+
+    @PostMapping("/courses/delete")
+    public ModelAndView deleteCourse(@RequestParam("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        courseService.deleteCourse(id);
+        modelAndView.setViewName("course-delete-success");
+        return modelAndView;
+    }
+
+
+    @GetMapping("/courses/delete-course-form")
+    public ModelAndView deleteCourseById() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("delete-form");
+        return modelAndView;
+
+    }
 }
