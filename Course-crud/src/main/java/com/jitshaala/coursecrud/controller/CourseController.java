@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+
+
 @RestController
+@RequestMapping("/api/course")
 @AllArgsConstructor
 @Transactional
-@RequestMapping("/api/course")
+
 public class CourseController {
 private final CourseService courseService;
     @PostMapping
